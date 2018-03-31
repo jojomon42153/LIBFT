@@ -10,65 +10,146 @@
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
+
 .PHONY: all clean fclean re
 
 NAME = libft.a
 CC = gcc
 CC_FLAGS = -Wall -Wextra -Werror
-PATH_SRC_LIBFT = ./
-PATH_OBJ_LIBFT = ./
-PATH_INC_LIBFT = ./
+PATH_SRC = ./srcs/
+PATH_OBJ = ./objs/
+PATH_INC = ./include/
+INCS = $(addprefix $(PATH_INC), libft.h)
 
 #******************************************************************************#
-#                                    LIBFT                                     #
+#                                    CHARS                                     #
 #******************************************************************************#
-FILES_LIBFT = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c\
-		ft_memcmp.c ft_memchr.c ft_strncat.c ft_strlcat.c ft_strcat.c\
-		ft_strncpy.c ft_strcpy.c ft_strdup.c ft_strlen.c ft_putchar.c\
-		ft_putstr.c ft_putnbr.c ft_strchr.c ft_strrchr.c ft_strstr.c\
-		ft_strnstr.c ft_strcmp.c ft_strncmp.c ft_atoi.c ft_isalpha.c\
-		ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_toupper.c\
-		ft_tolower.c ft_memalloc.c ft_memdel.c ft_strnew.c ft_strdel.c\
-		ft_strclr.c ft_striter.c ft_striteri.c ft_strmap.c ft_strmapi.c\
-		ft_strequ.c ft_strnequ.c ft_strsub.c ft_strjoin.c ft_strtrim.c\
-		ft_strsplit.c ft_itoa.c ft_putendl.c ft_putchar_fd.c ft_putstr_fd.c\
-		ft_putendl_fd.c ft_putnbr_fd.c ft_lstnew.c ft_lstdelone.c ft_lstdel.c\
-		ft_lstadd.c ft_lstiter.c ft_lstmap.c ft_intlen.c ft_print_strlst.c\
-		ft_putstr2d.c ft_freestr2d.c get_next_line.c
-OBJ_LIBFT = $(addprefix $(PATH_OBJ_LIBFT), $(FILES_LIBFT:.c=.o))
-SRC_LIBFT = $(addprefix $(PATH_SRC_LIBFT), $(FILES_LIBFT))
-INC_LIBFT = $(addprefix $(PATH_INC_LIBFT), libft.h)
+
+PATH_OBJ_CHARS = $(PATH_OBJ)Chars/
+PATH_SRC_CHARS = $(PATH_SRC)Chars/
+FILES_CHARS = ft_atoi ft_tolower ft_toupper
+OBJ_CHARS = $(addprefix $(PATH_OBJ_CHARS), $(addsuffix .o , $(FILES_CHARS)))
+SRC_CHARS = $(addprefix $(PATH_SRC_CHARS), $(addsuffix .c , $(FILES_CHARS)))
+
+#******************************************************************************#
+#                                    GNL                                       #
+#******************************************************************************#
+
+PATH_OBJ_GNL = $(PATH_OBJ)Gnl/
+PATH_SRC_GNL = $(PATH_SRC)Gnl/
+FILES_GNL = get_next_line
+OBJ_GNL = $(addprefix $(PATH_OBJ_GNL), $(addsuffix .o , $(FILES_GNL)))
+SRC_GNL = $(addprefix $(PATH_SRC_GNL), $(addsuffix .c , $(FILES_GNL)))
+
+#******************************************************************************#
+#                                    INTS                                      #
+#******************************************************************************#
+
+PATH_OBJ_INTS = $(PATH_OBJ)Ints/
+PATH_SRC_INTS = $(PATH_SRC)Ints/
+FILES_INTS = ft_intlen ft_int_swap ft_itoa
+OBJ_INTS = $(addprefix $(PATH_OBJ_INTS), $(addsuffix .o , $(FILES_INTS)))
+SRC_INTS = $(addprefix $(PATH_SRC_INTS), $(addsuffix .c , $(FILES_INTS)))
+
+#******************************************************************************#
+#                                    LISTS                                     #
+#******************************************************************************#
+
+PATH_OBJ_LISTS = $(PATH_OBJ)Lists/
+PATH_SRC_LISTS = $(PATH_SRC)Lists/
+FILES_LISTS = ft_lstadd ft_lstdel ft_lstdelone ft_lstiter ft_lstmap ft_lstnew
+OBJ_LISTS = $(addprefix $(PATH_OBJ_LISTS), $(addsuffix .o , $(FILES_LISTS)))
+SRC_LISTS = $(addprefix $(PATH_SRC_LISTS), $(addsuffix .c , $(FILES_LISTS)))
+
+#******************************************************************************#
+#                                    MEMORY                                    #
+#******************************************************************************#
+
+PATH_OBJ_MEMORY = $(PATH_OBJ)Memory/
+PATH_SRC_MEMORY = $(PATH_SRC)Memory/
+FILES_MEMORY = ft_bzero ft_gswap ft_memalloc ft_memccpy ft_memchr ft_memcmp\
+			ft_memcpy ft_memdel ft_memmove ft_memset
+OBJ_MEMORY = $(addprefix $(PATH_OBJ_MEMORY), $(addsuffix .o , $(FILES_MEMORY)))
+SRC_MEMORY = $(addprefix $(PATH_SRC_MEMORY), $(addsuffix .c , $(FILES_MEMORY)))
+
+#******************************************************************************#
+#                                    PUTS                                      #
+#******************************************************************************#
+
+PATH_OBJ_PUTS = $(PATH_OBJ)Puts/
+PATH_SRC_PUTS = $(PATH_SRC)Puts/
+FILES_PUTS =ft_putchar ft_putchar_fd ft_putendl ft_putendl_fd ft_putnbr\
+			ft_putnbr_fd ft_putstr2d ft_putstr ft_putstr_fd ft_putstrlst
+OBJ_PUTS = $(addprefix $(PATH_OBJ_PUTS), $(addsuffix .o , $(FILES_PUTS)))
+SRC_PUTS = $(addprefix $(PATH_SRC_PUTS), $(addsuffix .c , $(FILES_PUTS)))
+
+#******************************************************************************#
+#                                    STRINGS                                   #
+#******************************************************************************#
+
+PATH_OBJ_STRS = $(PATH_OBJ)Strings/
+PATH_SRC_STRS = $(PATH_SRC)Strings/
+FILES_STRS = ft_freestr2d ft_strcat ft_strchr ft_strclr ft_strcmp ft_strcpy\
+			ft_strdel ft_strdup ft_strequ ft_striter ft_striteri ft_strjoin\
+			ft_strlcat ft_strlen ft_strmap ft_strmapi ft_strncat ft_strncmp\
+			ft_strncpy ft_strnequ ft_strnew ft_strnstr ft_strrchr ft_strsplit\
+			ft_strstr ft_strsub ft_strtrim
+OBJ_STRS = $(addprefix $(PATH_OBJ_STRS), $(addsuffix .o , $(FILES_STRS)))
+SRC_STRS = $(addprefix $(PATH_SRC_STRS), $(addsuffix .c , $(FILES_STRS)))
+
+#******************************************************************************#
+#                                    TESTS                                     #
+#******************************************************************************#
+
+PATH_OBJ_TEST = $(PATH_OBJ)Test/
+PATH_SRC_TEST = $(PATH_SRC)Test/
+FILES_TEST = ft_isalnum ft_isalpha ft_isascii ft_isdigit ft_isprint
+OBJ_TEST = $(addprefix $(PATH_OBJ_TEST), $(addsuffix .o , $(FILES_TEST)))
+SRC_TEST = $(addprefix $(PATH_SRC_TEST), $(addsuffix .c , $(FILES_TEST)))
 
 #******************************************************************************#
 #                                    ALL                                       #
 #******************************************************************************#
 
+PATHS_OBJ = $(PATH_OBJ) $(PATH_OBJ_CHARS) $(PATH_OBJ_GNL) $(PATH_OBJ_INTS)\
+		$(PATH_OBJ_LISTS) $(PATH_OBJ_MEMORY) $(PATH_OBJ_PUTS) $(PATH_OBJ_STRS)\
+		$(PATH_OBJ_TEST)
+OBJS = $(OBJ_CHARS) $(OBJ_GNL) $(OBJ_INTS) $(OBJ_LISTS) $(OBJ_MEMORY)\
+		$(OBJ_PUTS) $(OBJ_STRS) $(OBJ_TEST)
+SRCS = $(SRC_CHARS) $(SRC_GNL) $(SRC_INTS) $(SRC_LISTS) $(SRC_MEMORY)\
+		$(SRC_PUTS) $(OBSRC_STRS) $(SRC_TEST)
+FILES = $(FILES_CHARS) $(FILES_GNL) $(FILES_INTS) $(FILES_LISTS)\
+		$(FILES_MEMORY) $(FILES_PUTS) $(FILES_STRS) $(FILES_TEST)
+
+#******************************************************************************#
+#                                    RULES                                     #
+#******************************************************************************#
+
 all: $(NAME)
-
-#******************************************************************************#
-#                             Compilation LIBFT                                #
-#******************************************************************************#
-
-$(NAME): $(OBJ_LIBFT) $(INC_LIBFT)
-	@echo "\n\033[1m🦄 🦄 🦄 🦄 CREATION DE LA LIBFT🦄 🦄 🦄 🦄\033[0m\n"
-	@ar rcs $(NAME) $(OBJ_LIBFT)
-	@echo "  👍  👍  👍 \033[1mLIBRAIRIE CREEE\033[0m👍  👍  👍\n"
-
-$(PATH_OBJ_LIBFT)%.o: $(PATH_SRC_LIBFT)%.c
-	@echo "0️⃣  Compilation de \033[1m$<\033[0m en \033[1m$@\033[0m"
-	@$(CC) $(CC_FLAGS) -o $@ -c $< -I $(PATH_INC_LIBFT)
-	@echo "   \033[0;32mCOMPILATION REUSSIE\033[0m\n"
-
-#******************************************************************************#
-#                                   OTHER                                      #
-#******************************************************************************#
 
 clean:
 	@echo "\n\033[1m🦄 🦄 🦄 🦄 SUPPRESSION DES OBJETS🦄 🦄 🦄 🦄\033[0m\n"
-	@rm -f $(OBJ_LIBFT)
+	@rm -rf $(PATH_OBJ)
 
 fclean: clean
 	@echo "\n\033[1m🦄 🦄 🦄 🦄 SUPPRESSION DE $(NAME)🦄 🦄 🦄 🦄\033[0m\n"
 	@rm -f $(NAME)
 
 re: fclean all
+
+#******************************************************************************#
+#                             Compilation LIBFT                                #
+#******************************************************************************#
+
+$(NAME): $(PATHS_OBJ) $(OBJS) $(INCS)
+	@echo "\n\033[1m🦄 🦄 🦄 🦄 CREATION DE LA LIBFT🦄 🦄 🦄 🦄\033[0m\n"
+	@ar rcs $(NAME) $(OBJS)
+	@echo "  👍  👍  👍 \033[1mLIBRAIRIE CREEE\033[0m👍  👍  👍\n"
+
+$(PATHS_OBJ):
+	@mkdir $@
+
+$(PATH_OBJ)%.o: $(PATH_SRC)%.c
+	@echo "0️⃣  Compilation de \033[1m$<\033[0m en \033[1m$@\033[0m"
+	@$(CC) $(CC_FLAGS) -o $@ -c $< -I $(PATH_INC)
+	@echo "   \033[0;32mCOMPILATION REUSSIE\033[0m\n"
