@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_int_swap.c                                    .::    .:/ .      .::   */
+/*   ft_wchartowstr.c                                 .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: jmonneri <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/29 21:22:48 by jmonneri     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/29 21:22:48 by jmonneri    ###    #+. /#+    ###.fr     */
+/*   Created: 2018/03/17 03:35:51 by jmonneri     #+#   ##    ##    #+#       */
+/*   Updated: 2018/03/17 03:50:16 by jmonneri    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_int_swap(int *a, int *b)
+wchar_t		*ft_wchartowstr(wchar_t c)
 {
-	if (a != b)
-	{
-		*a += *b;
-		*b = *a - *b;
-		*a -= *b;
-	}
+	wchar_t	*wstr;
+
+	if (!(wstr = (wchar_t *)malloc(sizeof(wchar_t) * 2)))
+		return (NULL);
+	wstr[1] = 0;
+	wstr[0] = c;
+	return (wstr);
 }

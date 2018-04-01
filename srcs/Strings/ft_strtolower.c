@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_int_swap.c                                    .::    .:/ .      .::   */
+/*   ft_strtolower.c                                  .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: jmonneri <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/29 21:22:48 by jmonneri     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/29 21:22:48 by jmonneri    ###    #+. /#+    ###.fr     */
+/*   Created: 2018/01/24 04:27:57 by jmonneri     #+#   ##    ##    #+#       */
+/*   Updated: 2018/03/12 20:32:02 by jmonneri    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_int_swap(int *a, int *b)
+char	*ft_strtolower(char *str)
 {
-	if (a != b)
-	{
-		*a += *b;
-		*b = *a - *b;
-		*a -= *b;
-	}
+	int i;
+
+	i = -1;
+	while (str[++i])
+		str[i] = ft_tolower(str[i]);
+	return (str);
 }

@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_int_swap.c                                    .::    .:/ .      .::   */
+/*   ft_ulitoa.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: jmonneri <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/29 21:22:48 by jmonneri     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/29 21:22:48 by jmonneri    ###    #+. /#+    ###.fr     */
+/*   Created: 2018/01/24 03:18:23 by jmonneri     #+#   ##    ##    #+#       */
+/*   Updated: 2018/03/12 20:32:03 by jmonneri    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_int_swap(int *a, int *b)
+char			*ft_ulitoa(unsigned long long int n)
 {
-	if (a != b)
+	char					*ret;
+	int						size;
+
+	size = ft_ulintlen(n);
+	if (!(ret = (char *)malloc(sizeof(*ret) * size + 1)))
+		return (NULL);
+	ret[size] = '\0';
+	if (n == 0)
+		ret[0] = '0';
+	while (n)
 	{
-		*a += *b;
-		*b = *a - *b;
-		*a -= *b;
+		ret[--size] = n % 10 + '0';
+		n /= 10;
 	}
+	return (ret);
 }

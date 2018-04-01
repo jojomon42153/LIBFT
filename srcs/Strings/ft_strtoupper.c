@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_int_swap.c                                    .::    .:/ .      .::   */
+/*   ft_strtoupper.c                                  .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: jmonneri <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/29 21:22:48 by jmonneri     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/29 21:22:48 by jmonneri    ###    #+. /#+    ###.fr     */
+/*   Created: 2018/01/24 04:22:48 by jmonneri     #+#   ##    ##    #+#       */
+/*   Updated: 2018/03/12 20:32:02 by jmonneri    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_int_swap(int *a, int *b)
+char	*ft_strtoupper(char *str)
 {
-	if (a != b)
+	while (str)
 	{
-		*a += *b;
-		*b = *a - *b;
-		*a -= *b;
+		*str = ft_toupper(*str);
+		str++;
 	}
+	return (str);
 }

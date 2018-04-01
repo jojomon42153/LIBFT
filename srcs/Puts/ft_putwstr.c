@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_int_swap.c                                    .::    .:/ .      .::   */
+/*   ft_putwstr.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: jmonneri <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/29 21:22:48 by jmonneri     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/29 21:22:48 by jmonneri    ###    #+. /#+    ###.fr     */
+/*   Created: 2018/02/20 16:21:38 by jmonneri     #+#   ##    ##    #+#       */
+/*   Updated: 2018/03/12 21:27:02 by jmonneri    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_int_swap(int *a, int *b)
+int		ft_putwstr(wchar_t *str)
 {
-	if (a != b)
-	{
-		*a += *b;
-		*b = *a - *b;
-		*a -= *b;
-	}
+	int		i;
+	int		ret;
+
+	ret = 0;
+	i = 0;
+	while (str[i])
+		ret += ft_putwchar(str[i++]);
+	return (ret);
 }

@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_int_swap.c                                    .::    .:/ .      .::   */
+/*   ft_strcnew.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: jmonneri <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/29 21:22:48 by jmonneri     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/29 21:22:48 by jmonneri    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/14 19:14:17 by jmonneri     #+#   ##    ##    #+#       */
+/*   Updated: 2018/03/12 20:31:57 by jmonneri    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_int_swap(int *a, int *b)
+char		*ft_strcnew(size_t size, char c)
 {
-	if (a != b)
-	{
-		*a += *b;
-		*b = *a - *b;
-		*a -= *b;
-	}
+	char	*str;
+	size_t	i;
+
+	i = 0;
+	if (!(str = (char *)malloc(sizeof(char) * size + 1)))
+		return (NULL);
+	while (i < size)
+		str[i++] = c;
+	str[i] = 0;
+	return (str);
 }

@@ -27,7 +27,7 @@ INCS = $(addprefix $(PATH_INC), libft.h)
 
 PATH_OBJ_CHARS = $(PATH_OBJ)Chars/
 PATH_SRC_CHARS = $(PATH_SRC)Chars/
-FILES_CHARS = ft_atoi ft_tolower ft_toupper
+FILES_CHARS = ft_atoi ft_tolower ft_toupper ft_wchartowstr
 OBJ_CHARS = $(addprefix $(PATH_OBJ_CHARS), $(addsuffix .o , $(FILES_CHARS)))
 SRC_CHARS = $(addprefix $(PATH_SRC_CHARS), $(addsuffix .c , $(FILES_CHARS)))
 
@@ -47,7 +47,8 @@ SRC_GNL = $(addprefix $(PATH_SRC_GNL), $(addsuffix .c , $(FILES_GNL)))
 
 PATH_OBJ_INTS = $(PATH_OBJ)Ints/
 PATH_SRC_INTS = $(PATH_SRC)Ints/
-FILES_INTS = ft_intlen ft_int_swap ft_itoa
+FILES_INTS = ft_intlen ft_int_swap ft_itoa ft_lintlen ft_litoa_base ft_litoa\
+			ft_ulintlen ft_ulitoa_base ft_ulitoa
 OBJ_INTS = $(addprefix $(PATH_OBJ_INTS), $(addsuffix .o , $(FILES_INTS)))
 SRC_INTS = $(addprefix $(PATH_SRC_INTS), $(addsuffix .c , $(FILES_INTS)))
 
@@ -79,7 +80,8 @@ SRC_MEMORY = $(addprefix $(PATH_SRC_MEMORY), $(addsuffix .c , $(FILES_MEMORY)))
 PATH_OBJ_PUTS = $(PATH_OBJ)Puts/
 PATH_SRC_PUTS = $(PATH_SRC)Puts/
 FILES_PUTS =ft_putchar ft_putchar_fd ft_putendl ft_putendl_fd ft_putnbr\
-			ft_putnbr_fd ft_putstr2d ft_putstr ft_putstr_fd ft_putstrlst
+			ft_putnbr_fd ft_putstr2d ft_putstr ft_putstr_fd ft_putstrlst\
+			ft_putwchar ft_putwstr
 OBJ_PUTS = $(addprefix $(PATH_OBJ_PUTS), $(addsuffix .o , $(FILES_PUTS)))
 SRC_PUTS = $(addprefix $(PATH_SRC_PUTS), $(addsuffix .c , $(FILES_PUTS)))
 
@@ -89,11 +91,12 @@ SRC_PUTS = $(addprefix $(PATH_SRC_PUTS), $(addsuffix .c , $(FILES_PUTS)))
 
 PATH_OBJ_STRS = $(PATH_OBJ)Strings/
 PATH_SRC_STRS = $(PATH_SRC)Strings/
-FILES_STRS = ft_freestr2d ft_strcat ft_strchr ft_strclr ft_strcmp ft_strcpy\
-			ft_strdel ft_strdup ft_strequ ft_striter ft_striteri ft_strjoin\
-			ft_strlcat ft_strlen ft_strmap ft_strmapi ft_strncat ft_strncmp\
-			ft_strncpy ft_strnequ ft_strnew ft_strnstr ft_strrchr ft_strsplit\
-			ft_strstr ft_strsub ft_strtrim
+FILES_STRS = ft_freestr2d ft_print_strlst ft_str2dlen ft_strcat ft_strchr\
+			ft_strclr ft_strcmp ft_strcnew ft_strcpy ft_strdel ft_strdup\
+			ft_strequ ft_striter ft_striteri ft_strjoin ft_strlcat ft_strlen\
+			ft_strmap ft_strmapi ft_strncat ft_strncmp ft_strncpy ft_strnequ\
+			ft_strnew ft_strnstr ft_strrchr ft_strsplit ft_strstr ft_strsub\
+			ft_strtolower ft_strtoupper ft_strtrim ft_wstrdup ft_wstrlen
 OBJ_STRS = $(addprefix $(PATH_OBJ_STRS), $(addsuffix .o , $(FILES_STRS)))
 SRC_STRS = $(addprefix $(PATH_SRC_STRS), $(addsuffix .c , $(FILES_STRS)))
 

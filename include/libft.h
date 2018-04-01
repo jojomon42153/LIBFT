@@ -17,7 +17,13 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <wchar.h>
+# include <stdarg.h>
+# include <limits.h>
+# include <sys/types.h>
+# include <locale.h>
+# include <stdio.h>
 # include <fcntl.h>
+
 # define BUFF_SIZE 4096 
 
 typedef struct		s_list
@@ -29,6 +35,7 @@ typedef struct		s_list
 
 int					get_next_line(const int fd, char **line);
 size_t				ft_strlen(const char *s);
+size_t				ft_wstrlen(wchar_t *wstr);
 char				*ft_strdup(const char *s1);
 char				*ft_strcpy(char *dst, const char *src);
 char				*ft_strncpy(char *dst, const char *src, size_t len);
@@ -42,6 +49,8 @@ int					ft_isascii(int c);
 int					ft_isprint(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
+char				*ft_strtoupper(char *str);
+char				*ft_strtolower(char *str);
 char				*ft_strchr(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strstr(const char *haystack, const char *needle);
@@ -58,10 +67,13 @@ void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 void				*ft_memmove(void *dst, const void *src, size_t len);
 int					ft_putchar(wchar_t c);
+int					ft_putwchar(wchar_t c);
 void				ft_putstr(char const *s);
+int					ft_putwstr(wchar_t *s);
 void				ft_putendl(char const *s);
 void				ft_putnbr(int n);
 char				*ft_strnew(size_t size);
+char				*ft_strcnew(size_t size, char c);
 void				ft_strdel(char **as);
 void				ft_memdel(void **ap);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
@@ -80,6 +92,10 @@ int					ft_strnequ(char const *s1, char const *s2, size_t n);
 char				**ft_strsplit(char const *s, char c);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_itoa(int n);
+char				*ft_litoa(long long int n);
+char				*ft_ulitoa(unsigned long long int n);
+char				*ft_litoa_base(long long int n, int base);
+char				*ft_ulitoa_base(unsigned long long int n, int base);
 char				*ft_strtrim(char const *s);
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
@@ -90,7 +106,13 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void				ft_int_swap(int *a, int *b);
 void				ft_gswap(void *p1, void *p2, size_t size);
 void				ft_print_strlst(t_list **alst);
+int					ft_lintlen(long long int nb);
+int					ft_ulintlen(unsigned long long int nb);
 int					ft_intlen(int nb);
 void				ft_putstr2d(char **str);
 void				ft_freestr2d(char **tab);
+char				*ft_chartostr(char c);
+wchar_t				*ft_wchartowstr(wchar_t c);
+int					ft_str2dlen(char **str);
+
 #endif
