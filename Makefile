@@ -155,4 +155,4 @@ $(PATHS_OBJ):
 $(PATH_OBJ)%.o: $(PATH_SRC)%.c
 	@printf %b "0️⃣  Compilation de \033[1m$<\033[0m en \033[1m$@\033[0m..."
 	@$(CC) $(CC_FLAGS) -o $@ -c $< -I $(PATH_INC)
-	@printf "\r                                                                                      \r"
+	@printf "\r                                                                                              \r"
