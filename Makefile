@@ -153,6 +153,6 @@ $(PATHS_OBJ):
 	@mkdir $@
 
 $(PATH_OBJ)%.o: $(PATH_SRC)%.c
-	@echo "0️⃣  Compilation de \033[1m$<\033[0m en \033[1m$@\033[0m"
+	@printf %b "0️⃣  Compilation de \033[1m$<\033[0m en \033[1m$@\033[0m..."
 	@$(CC) $(CC_FLAGS) -o $@ -c $< -I $(PATH_INC)
-	@echo "   \033[0;32mCOMPILATION REUSSIE\033[0m\n"
+	@printf "\r                                                                                      \r"
