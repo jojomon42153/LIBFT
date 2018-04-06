@@ -11,7 +11,7 @@
 #                                                         /                    #
 # **************************************************************************** #
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re clear
 
 NAME = libft.a
 CC = gcc
@@ -138,13 +138,16 @@ fclean: clean
 	@echo "\n\033[1m🦄 🦄 🦄 🦄 SUPPRESSION DE $(NAME)🦄 🦄 🦄 🦄\033[0m\n"
 	@rm -f $(NAME)
 
+clear:
+	@clear
+
 re: fclean all
 
 #******************************************************************************#
 #                             Compilation LIBFT                                #
 #******************************************************************************#
 
-$(NAME): $(PATHS_OBJ) $(OBJS) $(INCS)
+$(NAME): clear $(PATHS_OBJ) $(OBJS) $(INCS)
 	@echo "\n\033[1m🦄 🦄 🦄 🦄 CREATION DE LA LIBFT🦄 🦄 🦄 🦄\033[0m\n"
 	@ar rcs $(NAME) $(OBJS)
 	@echo "  👍  👍  👍 \033[1mLIBRAIRIE CREEE\033[0m👍  👍  👍\n"
@@ -155,4 +158,5 @@ $(PATHS_OBJ):
 $(PATH_OBJ)%.o: $(PATH_SRC)%.c
 	@printf %b "0️⃣  Compilation de \033[1m$<\033[0m en \033[1m$@\033[0m..."
 	@$(CC) $(CC_FLAGS) -o $@ -c $< -I $(PATH_INC)
-	@printf "\r                                                                                              \r"
+	@printf "\r"
+	@printf "                                                                                     \r"
