@@ -1,0 +1,3 @@
+printf:
+	ajouter ft_wchar_size
+	ajouter ft_wstrcnew
